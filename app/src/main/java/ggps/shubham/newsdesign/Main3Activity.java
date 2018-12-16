@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import java.util.ArrayList;
 
 public class Main3Activity extends AppCompatActivity implements GestureDetector.OnGestureListener {
 private ArrayList<String> al;
+ViewFlipper viewFlipper;
 public static  final int SWIPE_THRESHOLD=100;
     public static  final int SWIPE_VELOCITY_THRESHOLD=100;
 private ArrayAdapter<String> arrayAdapter;
@@ -23,6 +26,27 @@ private int i;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
         gestureDetector = new GestureDetector(this);
+
+        viewFlipper=(ViewFlipper)findViewById(R.id.slide);
+        int images[]={R.drawable.slide1,R.drawable.slide2,R.drawable.slide3,R.drawable.slide4};
+        /*for (int i=0;i<images.length;i++){
+            flippimage(images[i]);
+        }*/
+        for(int image:images){
+            flippimage(image);
+        }
+
+    }
+
+    public void  flippimage(int image){
+        ImageView imageView=new ImageView(this);
+        imageView.setBackgroundResource(image);
+        viewFlipper.addView(imageView);
+        viewFlipper.setFlipInterval(4000);
+        viewFlipper.setAutoStart(true);
+        viewFlipper.setInAnimation(this,android.R.anim.slide_in_left);
+        viewFlipper.setOutAnimation(this,android.R.anim.slide_out_right);
+
     }
 
     @Override
