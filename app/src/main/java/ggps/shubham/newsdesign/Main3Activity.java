@@ -28,7 +28,7 @@ private int i;
         gestureDetector = new GestureDetector(this);
 
         viewFlipper=(ViewFlipper)findViewById(R.id.slide);
-        int images[]={R.drawable.slide1,R.drawable.slide2,R.drawable.slide3,R.drawable.slide4};
+        int images[]={R.drawable.slide1,R.drawable.slide2,R.drawable.slide3};
         /*for (int i=0;i<images.length;i++){
             flippimage(images[i]);
         }*/
@@ -44,8 +44,8 @@ private int i;
         viewFlipper.addView(imageView);
         viewFlipper.setFlipInterval(4000);
         viewFlipper.setAutoStart(true);
-        viewFlipper.setInAnimation(this,android.R.anim.slide_in_left);
-        viewFlipper.setOutAnimation(this,android.R.anim.slide_out_right);
+        viewFlipper.setInAnimation(this,R.anim.fadeinleft);
+        viewFlipper.setOutAnimation(this,android.R.anim.fade_out);
 
     }
 
