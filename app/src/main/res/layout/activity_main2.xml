@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    tools:context="ggps.shubham.newsdesign.Main2Activity">
+<ImageView
+    android:layout_width="250dp"
+    android:layout_height="250dp"
+    android:src="@mipmap/ic_launcher_foreground"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="100dp"
+    />
+    <Button
+        android:layout_width="198dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:background="#ff4000"
+        android:text="SIGN IN"
+        android:textColor="#ffffff"
+        android:textSize="24dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/signin"
+        android:typeface="serif" />
+
+    <Button
+        android:layout_width="198dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp"
+        android:layout_alignEnd="@+id/signin"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/register"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-7dp"
+        android:layout_toEndOf="@+id/signin"
+        android:background="#ff4000"
+        android:text="REGISTER"
+        android:textColor="#ffffff"
+        android:textSize="24dp"
+        android:typeface="serif" />
+</RelativeLayout>
