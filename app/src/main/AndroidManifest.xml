@@ -18,14 +18,15 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme"
             android:parentActivityName=".Main3Activity"
-            />
-        <activity android:name=".Register"
-            android:parentActivityName=".Main3Activity"/>
-        <activity android:name=".Main2Activity"
-            android:parentActivityName=".Main3Activity"
-            ></activity>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Register"
+            android:parentActivityName=".Main3Activity" />
+        <activity
+            android:name=".Main2Activity"
+            android:parentActivityName=".Main3Activity" />
+        <activity android:name=".FullNews"></activity>
     </application>
 
 </manifest>
