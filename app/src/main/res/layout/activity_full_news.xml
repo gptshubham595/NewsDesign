@@ -36,11 +36,15 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginLeft="5dp"
-        android:id="@+id/layoutread"
         android:orientation="vertical"
-        android:layout_marginTop="60dp"
         android:layout_marginRight="5dp">
-
+        <com.flaviofaria.kenburnsview.KenBurnsView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:scaleType="fitXY"
+            android:layout_marginTop="70dp"
+            android:src="@drawable/ab" />
 
         <TextView
             android:id="@+id/heading"
@@ -53,14 +57,27 @@
             android:textSize="24dp"
             android:textStyle="bold"
             android:typeface="serif" />
+    </LinearLayout>
+        <ScrollView
+        android:layout_width="match_parent"
+        android:layout_marginTop="200dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true">
+            <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:id="@+id/layoutread"
+    android:orientation="vertical"
+    android:layout_marginRight="5dp">
 
-        <TextView
+<TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:padding="8dp"
+    android:layout_marginTop="30dp"
             android:layout_below="@id/heading"
-            android:text="Hello This is the news Showcase and with a small description, While being here this looks to be great being here. So whats about the news to be here
+            android:text="....SCROLLABLE TEXT....Hello This is the news Showcase and with a small description, While being here this looks to be great being here. So whats about the news to be here
 kjdjafkasnoaaasnfmkkksdflksmdn xzklxck
 kjfdjkfbsdjbsdnbjsjkbk
 jdvhbjkdbkjjnnmsdvnnsdmvnsdvhuvndvnkdvn
@@ -81,7 +98,9 @@ ddddddddddddddddddddddddddddddddddd
 dddddddddddddddddddddddddddddddddddddddddd
 ddddddTHis is the last line"
             android:textSize="18dp" />
-    </LinearLayout>
+</LinearLayout>
+</ScrollView>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

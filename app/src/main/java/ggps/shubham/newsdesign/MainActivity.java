@@ -7,18 +7,32 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import org.objectweb.asm.Handle;
 
 public class MainActivity extends AppCompatActivity {
 RelativeLayout relative;
+    ViewFlipper viewFlipper;
+
 int i=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toast.makeText(getApplicationContext(),"Double Tap to read complete news",Toast.LENGTH_SHORT).show();
+        viewFlipper=(ViewFlipper)findViewById(R.id.slide);
+        int images[]={R.drawable.slide1,R.drawable.slide2,R.drawable.slide3};
+        /*for (int i=0;i<images.length;i++){
+            flippimage(images[i]);
+        }*/
+        for(int image:images){
+            flippimage(image);
+        }
+
         relative=findViewById(R.id.layout);
         relative.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +51,16 @@ int i=0;
                 },500);
             }
         });
+    }
+    public void  flippimage(int image){
+        ImageView imageView=new ImageView(this);
+        imageView.setBackgroundResource(image);
+        viewFlipper.addView(imageView);
+        viewFlipper.setFlipInterval(4000);
+        viewFlipper.setAutoStart(true);
+        viewFlipper.setInAnimation(this,R.anim.fadeinleft);
+        viewFlipper.setOutAnimation(this,android.R.anim.fade_out);
+
     }
 
 }
