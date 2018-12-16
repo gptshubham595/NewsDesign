@@ -58,8 +58,8 @@ int i=0;
         viewFlipper.addView(imageView);
         viewFlipper.setFlipInterval(4000);
         viewFlipper.setAutoStart(true);
-        viewFlipper.setInAnimation(this,R.anim.fadeinleft);
-        viewFlipper.setOutAnimation(this,android.R.anim.fade_out);
+        viewFlipper.setInAnimation(this,android.R.anim.slide_in_left);
+        viewFlipper.setOutAnimation(this,android.R.anim.slide_out_right);
 
     }
 
