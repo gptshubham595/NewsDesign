@@ -56,21 +56,16 @@
             android:textSize="24dp"
             android:textStyle="bold"
             android:typeface="serif" />
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_below="@id/heading"
-    android:layout_height="match_parent">
-        <TextView
+   <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+android:layout_below="@id/heading"            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:padding="8dp"
             android:backgroundTint="#fafafa"
             android:background="@drawable/shape"
-
             android:text="Hello This is the news Showcase and with a small description, While being here this looks to be great being here. So whats about the news to be here"
             android:textSize="18dp" />
-</ScrollView>
+
         <Button
             android:id="@+id/tags"
             android:layout_width="120dp"

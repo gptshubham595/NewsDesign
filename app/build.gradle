@@ -2,7 +2,12 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
-    defaultConfig {
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    
+defaultConfig {
         applicationId "ggps.shubham.newsapp"
         minSdkVersion 21
         targetSdkVersion 28
