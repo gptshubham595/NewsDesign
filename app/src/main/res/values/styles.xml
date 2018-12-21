@@ -3,12 +3,12 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/nav</item>
-        <item name="colorPrimaryDark">@color/nav</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">#ffffff</item>
         <item name="SwipeFlingStyle">@style/SwipeFling</item>
-        <item name="android:navigationBarColor">@color/nav</item>
+        <item name="android:navigationBarColor">#ffffff</item>
         <item name="colorAccent">@color/colorAccent</item>
- <item name="android:windowAnimationStyle">@style/customActivityAnimation</item>
+
     
     </style>
     <style name="AppTheme1" parent="Theme.AppCompat.Light.NoActionBar">

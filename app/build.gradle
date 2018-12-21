@@ -6,9 +6,9 @@ android {
         checkReleaseBuilds false
         abortOnError false
     }
-    
-defaultConfig {
-        applicationId "ggps.shubham.newsapp"
+
+    defaultConfig {
+        applicationId "ggps.shubham.newsfinal"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
@@ -25,6 +25,8 @@ defaultConfig {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation  'com.huxq17.android:SwipeCardsView:1.3.4'
+    implementation  'com.github.hajiyevelnur92:intentanimation:1.0'
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.android.support:support-v4:28.0.0'
@@ -76,4 +78,6 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-database:2.0.1'
     implementation 'com.google.firebase:firebase-auth:11.0.1'
 
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    implementation 'com.jakewharton:butterknife:8.5.1'
 }
