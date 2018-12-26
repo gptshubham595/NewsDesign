@@ -8,7 +8,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ggps.shubham.newsfinal.secondpage.NewsLifestyle">
+    tools:context=".secondpage.NewsLifestyle">
 
     <RelativeLayout
         android:layout_width="wrap_content"

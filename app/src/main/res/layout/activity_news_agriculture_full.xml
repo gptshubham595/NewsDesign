@@ -9,7 +9,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     app:cardCornerRadius="30dp"
     android:background="#9b9595"
 android:outlineAmbientShadowColor="@color/colorPrimary"
-tools:context="ggps.shubham.newsfinal.thirdpage.NewsAgricultureFull">
+tools:context=".thirdpage.NewsAgricultureFull">
 
 <RelativeLayout
     android:layout_width="match_parent"

@@ -7,8 +7,8 @@
     app:cardCornerRadius="30dp"
     android:background="#9b9595"
     android:outlineAmbientShadowColor="@color/colorPrimary"
+    tools:context=".firstpage.MainScreen">
 
-    tools:context="ggps.shubham.newsfinal.firstpage.MainScreen">
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -40,7 +40,7 @@
             android:layout_marginTop="60dp"
             android:textSize="20dp"
             android:layout_height="200dp"
-            android:text="Token"
+            android:hint="token"
             android:id="@+id/token"
             />
 
@@ -53,7 +53,7 @@
             android:layout_below="@id/token"
             android:layout_alignParentStart="true"
             android:padding="8dp"
-            android:text="Main Page"
+            android:text="Main Screen"
             android:gravity="center"
             android:textColor="#000000"
             android:textSize="24dp"
@@ -90,5 +90,4 @@
             android:text="Features"
             android:textColor="#8c09ff" />
     </RelativeLayout>
-
 </android.support.v7.widget.CardView>

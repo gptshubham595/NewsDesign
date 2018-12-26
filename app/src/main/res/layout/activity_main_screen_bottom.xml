@@ -7,7 +7,7 @@
     app:cardCornerRadius="30dp"
     android:background="#9b9595"
     android:outlineAmbientShadowColor="@color/colorPrimary"
-    tools:context="ggps.shubham.newsfinal.firstpage.MainScreenBottom">
+    tools:context=".firstpage.MainScreenBottom">
 
     <RelativeLayout
         android:layout_width="wrap_content"
