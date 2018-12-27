@@ -63,24 +63,7 @@ public class MainScreen extends AppCompatActivity  implements GestureDetector.On
         textView=(TextView) findViewById(R.id.token);
 //--------------------------------------------------------
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
-        myRef.setValue("Hello, World!");
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-                textView.setText(value);
-                //Log.d(TAG, "Value is: " + value);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-            }
-        });
+        
 
 //-----------------------------------------------------
         gestureDetector = new GestureDetector(this);
@@ -97,11 +80,7 @@ public class MainScreen extends AppCompatActivity  implements GestureDetector.On
 
 
         //-----------------------------------------
-        final String location=SampleActivity.location;
-        final String pass="123456789";
-        final String Device_Token = FirebaseInstanceId.getInstance().getToken();
-
-        RegisterAccount(location,pass,Device_Token);
+        
         //--------------------------------
 
 
@@ -109,28 +88,8 @@ public class MainScreen extends AppCompatActivity  implements GestureDetector.On
     }
 
     //============================================
-    private void RegisterAccount(final String location,final String pass,final String Device_Token) {
-
-
-        mauth.createUserWithEmailAndPassword(Device_Token, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    String Currentuid = mauth.getCurrentUser().getUid();
-                    storeuserdata = FirebaseDatabase.getInstance().getReference().child("Users").child(Currentuid);
-                    storeuserdata.child("device_token").setValue(Device_Token);
-                    storeuserdata.child("location").setValue(location).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful()){
-                                Toast.makeText(getApplicationContext(),"Registered!!",Toast.LENGTH_LONG).show();
-                                finish();
-                            }}});
-                }
-            }
-        });
-
-    }
+    
+    
 
 
     //=-----------------------------------------
