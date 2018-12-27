@@ -8,6 +8,8 @@ import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.yayandroid.locationmanager.base.LocationBaseActivity;
 import com.yayandroid.locationmanager.configuration.Configurations;
 import com.yayandroid.locationmanager.configuration.LocationConfiguration;
@@ -26,7 +28,7 @@ public class SampleActivity extends LocationBaseActivity implements SampleView {
 
     private ProgressDialog progressDialog;
     private TextView locationText;
-
+public static String location;
     private SamplePresenter samplePresenter;
     Thread a;
 
@@ -37,7 +39,6 @@ public class SampleActivity extends LocationBaseActivity implements SampleView {
         locationText = (TextView) findViewById(R.id.locationText);
         samplePresenter = new SamplePresenter(this);
         getLocation();
-
     }
 
 
@@ -120,6 +121,9 @@ public class SampleActivity extends LocationBaseActivity implements SampleView {
     @Override
     public void setText(String text) {
         locationText.setText(text);
+        location=text;
+
+
     }
 
     @Override

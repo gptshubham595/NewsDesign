@@ -1,6 +1,7 @@
 package com.yayandroid.locationmanager.sample
 .firstpage;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -9,6 +10,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,11 +23,16 @@ import java.util.Locale;
 
 import android.Manifest;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.yayandroid.locationmanager.sample.R;
+import com.yayandroid.locationmanager.sample.activity.SampleActivity;
 import com.yayandroid.locationmanager.sample.secondpage.NewsSports;
 
 import android.view.GestureDetector;
@@ -40,8 +47,11 @@ import maes.tech.intentanim.CustomIntent;
 public class MainScreen extends AppCompatActivity  implements GestureDetector.OnGestureListener{
 
     TextView textView;
-    private DatabaseReference mDatabase;
-    private FirebaseAuth mAuth;
+
+    private FirebaseAuth mauth;
+    private DatabaseReference storeuserdata;
+    ProgressDialog load;
+
     public static  final int SWIPE_THRESHOLD=100;
     public static  final int SWIPE_VELOCITY_THRESHOLD=100;
     private GestureDetector gestureDetector;
@@ -84,8 +94,46 @@ public class MainScreen extends AppCompatActivity  implements GestureDetector.On
             getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
                     .putBoolean("isFirstRun", false).apply();
         }
+
+
+        //-----------------------------------------
+        final String location=SampleActivity.location;
+        final String pass="123456789";
+        final String Device_Token = FirebaseInstanceId.getInstance().getToken();
+
+        RegisterAccount(location,pass,Device_Token);
+        //--------------------------------
+
+
+
     }
 
+    //============================================
+    private void RegisterAccount(final String location,final String pass,final String Device_Token) {
+
+
+        mauth.createUserWithEmailAndPassword(Device_Token, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    String Currentuid = mauth.getCurrentUser().getUid();
+                    storeuserdata = FirebaseDatabase.getInstance().getReference().child("Users").child(Currentuid);
+                    storeuserdata.child("device_token").setValue(Device_Token);
+                    storeuserdata.child("location").setValue(location).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(getApplicationContext(),"Registered!!",Toast.LENGTH_LONG).show();
+                                finish();
+                            }}});
+                }
+            }
+        });
+
+    }
+
+
+    //=-----------------------------------------
     @Override
     public boolean onDown(MotionEvent e) {
         return false;
